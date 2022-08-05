@@ -11,11 +11,11 @@ const blogButton = document.querySelector(".blog");
 const contactButton = document.querySelector(".contact");
 
 //page section selections:
-const homePage = document.getElementById("home_element")
-const aboutPage = document.getElementById("about_element")
-const collabPage = document.getElementById("collab_element")
-const blogPage = document.getElementById("blog_element")
-const contactPage = document.getElementById("contact_element")
+const homePage = document.querySelector(".content")
+const aboutPage = document.querySelector(".second-page")
+const collabPage = document.querySelector(".third-page")
+const blogPage = document.querySelector(".fourth-page")
+const contactPage = document.querySelector(".fifth-page")
 
 //scroll style:
 const scrollStyle = { behavior: "smooth", block: "end", inline: "nearest" }
