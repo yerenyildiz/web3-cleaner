@@ -3,7 +3,7 @@
 "use strict";
 
 //////////////////////////////////SELECTIONS //////////////////////////////////////////////////
-//navbar button selections:
+//navbar button selections, child classes:
 const homeButton = document.querySelector(".home");
 const aboutButton = document.querySelector(".about-me");
 const collabButton = document.querySelector(".collab");
@@ -16,6 +16,11 @@ const aboutPage = document.querySelector(".second-page")
 const collabPage = document.querySelector(".third-page")
 const blogPage = document.querySelector(".fourth-page")
 const contactPage = document.querySelector(".fifth-page")
+
+//Nav parent class:
+const navParent = document.querySelector(".pages")
+//pages parent class:
+const pagesParent = document.querySelector(".pagecontainer")
 
 //scroll style:
 const scrollStyle = { behavior: "smooth", block: "end", inline: "nearest" }
@@ -45,28 +50,17 @@ let account;
 let isAccountConnected = false;
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
-
-//navbar scroll events 
-homeButton.addEventListener("click", function(){
-  homePage.scrollIntoView(scrollStyle)
-  ;
-})
-
-aboutButton.addEventListener("click", function(){
-  aboutPage.scrollIntoView(scrollStyle);
-})
-
-collabButton.addEventListener("click", function(){
-  collabPage.scrollIntoView(scrollStyle);
-})
-
-blogButton.addEventListener("click", function(){
-  blogPage.scrollIntoView(scrollStyle);
-})
-
-contactButton.addEventListener("click", function(){
-  contactPage.scrollIntoView(scrollStyle);
-})
+// When the user clicks on the button, scroll to the top of the document
+const topFunction = function() {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+}
+// //navbar scroll events 
+navParent.addEventListener("click", function(e){
+  e.preventDefault();
+  const selectString= e.target.getAttribute("id")
+  const targetPage = document.querySelector(`a[href='${selectString}']`);
+  targetPage.scrollIntoView(scrollStyle)})
 
 // When the user scrolls down 20px from the top of the document, show the button
 function scrollFunction() {
@@ -92,11 +86,7 @@ window.onscroll = function () {
 //go to top button
 
 
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
+
 
 //Modal Window
 
@@ -207,10 +197,4 @@ window.ethereum.on("accountsChanged", function (accounts) {
   document.querySelector(".walletalert").style.display ="flex";
   document.querySelector(".walletneededcard").style.display ="none";
 }); 
-
-
-
-
-
-
 

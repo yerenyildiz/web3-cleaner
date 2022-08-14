@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Yusuf Eren YILDIZ</title>
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/styles/styles.css" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css?family=Habibi"
@@ -18,7 +18,7 @@
        <div class="modal hidden">
       <button class="close-modal">&times;</button>
       <h8 class="modal-header">Please connect your Wallet to display web3 contents</h8>
-      <div class="metamask-container" id="connectButton"><img src="/metamask.jpg" alt="" style="width: 8rem;">Metamask</div>
+      <div class="metamask-container" id="connectButton"><img src="/imgs/metamask.jpg" alt="" style="width: 8rem;">Metamask</div>
       <div class="statusBar" id="statusBar"> <div id="connectionLED"></div>Status: <div id="status">Not Connected</div></div>
       
       <div class="showAccount">Connected with: No Wallet</div>
@@ -26,7 +26,7 @@
       
     </div>
       <div class="navbar" id="navbar">
-        <div class="logoarea" id="home_element" onclick="scroll_function0()">
+        <div class="logoarea" onclick="topFunction()">
           <div class="logo">YEY</div>
           <div class="line1"></div>
           <div class="name">
@@ -34,16 +34,16 @@
           </div>
         </div>
         <div class="pages">
-          <div class="home" id="home">Home</div>
-          <div class="about-me" id="about_element">About</div>
-          <div class="collab" id="collab_element" >Collaborations</div>
-          <div class="blog" id="blog_element" >Blog</div>
-          <div class="contact" id="contact_element">Contact</div>
+          <div class="home" id="section--1">Home</div>
+          <div class="about-me" id="section--2" >About</div>
+          <div class="collab" id="section--3">Collaborations</div>
+          <div class="blog" id="section--4">Blog</div>
+          <div class="contact"id="section--5" >Contact</div>
           <div class="show-modal">Connect Wallet</div> <!-- modal window button-->
         </div>
       </div>
       <div class="mainframe">
-        <div class="content" id="home">
+        <div class="content" id="home" data-set="1"><a href="section--1"></a>
           Welcome to my Resume webpage. <br />
           <br />
           I am an Istanbul-based Attorney-At-Law and candidate of a
@@ -63,7 +63,7 @@
           Download Resume
         </a>
       </div>
-      <div class="second-page" id="about_element">
+      <div class="second-page" id="about_element" data-set="2">
         <h1>About</h1>
         <div class="box-container abouttext">
           <div> &nbsp;&nbsp;&nbsp; When my colleagues say "get a resume website", i thought "why am I not building one all by myself?". I created this Resume Website to understand how front-end scripts work and how to solve problems in coding. I could prefer a full template but it wouldn't be an experience for me. So, in the beginning, i am trying to remember my old-fashioned HTML(2006) and other front-end skills (2008, Macromedia Dreamweaver, Flash, etc.) and update them. Lots of things were changed and evolved! For now, it was a great experience.
@@ -72,12 +72,13 @@
           </p><p>
             &nbsp;&nbsp;&nbsp; My main profession is providing services to my clients on enforcement law, law of contracts, corporate consultancy and litigation.</p>
             <p>&nbsp;&nbsp;&nbsp; Please do not hesitate to contact me!</p>
-          
+            
           
           </div>
           </div>
+          <a href="section--2" class="goto"></a>
       </div>
-      <div class="third-page" id="collab_element">
+      <div class="third-page" id="collab_element" data-set="3">
       <h2>Collaborations</h2>
         <div class="box-container--3">
           <div class="collab-1">
@@ -92,8 +93,9 @@
               
               AGB Consultants is a member of DEIK (Foreign Economic Relations Board) in Turkey.</p></div>
       </div>
+      <a href="section--3" class="goto"></a>
       </div>
-      <div class="fourth-page" id="blog_element">
+      <div class="fourth-page" id="blog_element" data-set="4">
       <h3>Blog</h3>
     
         <div class="box-container">
@@ -114,7 +116,7 @@
             </div>   
           </div></a>
           <div class="boxes">
-            <div class="walletalert">Please connect your wallet to display this content. <img src="/metamask.jpg" alt="" style="width: 5rem;"></div>
+            <div class="walletalert">Please connect your wallet to display this content. <img src="/imgs/metamask.jpg" alt="" style="width: 5rem;"></div>
             <div class="walletneededcard">
             <div class="inboxes thirdimg"> 
             </div >
@@ -125,14 +127,15 @@
           </div>
           </div>
       </div>
+      <a href="section--4" class="goto"></a>
       </div>
-      <div class="fifth-page" id="contact_element"> 
+      <div class="fifth-page" id="contact_element" data-set="5"> 
       <h4>Contact</h4>
       <div class="header--5">Let's stay connected!</div>
       <div class="bottom-container">
         <div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3006.4713574523594!2d28.98551201491755!3d41.102395721577565!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab9e776ffed67%3A0xba0cf5496213c4e8!2sG%C3%BClel%20Attorneys%20at%20Law!5e0!3m2!1str!2str!4v1654714162563!5m2!1str!2str" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>
         <div class="bottom-right">
-        <img class="pp" src="/PP.jpg" alt="">
+        <img class="pp" src="/imgs/PP.jpg" alt="">
         <div class="last-text">Yusuf Eren YILDIZ <br>Attorney At Law - Legal Engineer <br>Huzur Mah. Azerbaycan Cad. Skyland Office B No:457 <br> Seyrantepe Sariyer Istanbul Türkiye <br> <a href="mailto:yerenyildiz@gmail.com" class="mailto"> yerenyildiz@gmail.com</a></div></div>
       </div>
         
@@ -145,7 +148,8 @@
           
         </div>
   
-      </div>
+        <a href="section--5" class="goto"></a>
+    </div>
       <footer>	&copy;Yusuf Eren Yıldız 2022
 
         <div><a href="/disclaimer.html" target="_blank" class="disclaimer">Disclaimer</a>
