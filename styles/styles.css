@@ -21,6 +21,13 @@ body {
   background-size:cover;
 }
 
+@media screen and (max-width: 601px) {
+  .mainpage {
+    background: none;
+  }
+  
+}
+
 .navbar {
   display: flex;
   width: 100%;
@@ -146,6 +153,15 @@ color: white;
   width: 35%;
   height: 100%;
   background-color: rgba(37, 53, 69, 0.8);
+}
+
+@media screen and (max-width: 600px) {
+  .mainframe{
+    margin-left: 1%;
+    width: 100%;
+
+  }
+  
 }
 
 .content {
