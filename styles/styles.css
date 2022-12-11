@@ -468,18 +468,12 @@ footer {
   justify-content: space-between;
 }
 
-.facebook-icon,
- .twitter-icon, 
- .linkedin-icon,
-  .github-icon {
+.icon{
   width: 10vh;
   filter: grayscale(100%);
 }
 
-.facebook-icon:hover,
- .twitter-icon:hover, 
- .linkedin-icon:hover,
-  .github-icon:hover {
+.icon:hover {
   filter: none;
   cursor: pointer;
 }
@@ -538,6 +532,11 @@ footer {
 h2 {
   margin: 0;
   padding: 0;
+}
+
+.h2-less-collab {
+  margin-top: 15rem;
+  margin-bottom: 7rem;
 }
 
 .disclaimer{
