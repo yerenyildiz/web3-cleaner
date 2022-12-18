@@ -23,10 +23,24 @@ const navParent = document.querySelector(".pages")
 const pagesParent = document.querySelector(".pagecontainer")
 
 //scroll style:
-const scrollStyle = { behavior: "smooth", block: "end", inline: "nearest" }
+const scrollStyle = { behavior: "smooth", block: "center"}
 
 //Get the button:
 const mybutton = document.getElementById("myBtn");
+
+//Modal Window
+const openModal = function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+  scrollDisable.style.overflow = "hidden";
+  topFunction(); //an interesting bug, if i don't call this function, webpage can be locked when the user scrolled to second or another page but not first, no access to 'x' key in modal window when the 'connect wallet' button pressed.
+};
+
+const closeModal = function () {
+  modal.classList.add("hidden");
+  overlay.classList.add("hidden");
+  scrollDisable.style.overflow = "auto";
+};
 
 /*modal wallet connection window */
 
@@ -37,6 +51,17 @@ const btnCloseModal = document.querySelector(".close-modal");
 const scrollDisable = document.body;
 
 //////////Metamask integration
+
+//is metamask installed?
+if (typeof window.ethereum !== "undefined") {
+} else {
+  walletBtn.classList.remove("show-modal");
+  walletBtn.classList.add("metamaskUninstalled");
+  walletBtn.removeEventListener("click", openModal);
+  console.log("to read web3 content, please install metamask");
+  walletBtn.textContent = `Please install Metamask`
+}
+
 
 const ethereumButton = document.querySelector(".metamask-container");
 const statusBar = document.querySelector(".showAccount");
@@ -83,26 +108,7 @@ window.onscroll = function () {
   prevScrollpos = currentScrollPos;
   scrollFunction(); //for go to top button
 };
-//go to top button
-
-
-
-
-//Modal Window
-
-const openModal = function () {
-  modal.classList.remove("hidden");
-  overlay.classList.remove("hidden");
-  scrollDisable.style.overflow = "hidden";
-  topFunction(); //an interesting bug, if i don't call this function, webpage can be locked when the user scrolled to second or another page but not first, no access to 'x' key in modal window when the 'connect wallet' button pressed.
-};
-
-const closeModal = function () {
-  modal.classList.add("hidden");
-  overlay.classList.add("hidden");
-  scrollDisable.style.overflow = "auto";
-};
-
+//open modal window
 walletBtn.addEventListener("click", openModal);
 btnCloseModal.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
@@ -112,20 +118,6 @@ document.addEventListener("keydown", function (e) {
     closeModal();
   }
 });
-
-
-
-//is metamask installed?
-if (typeof window.ethereum !== "undefined") {
-} else {
-  walletBtn.classList.remove("show-modal");
-  walletBtn.classList.add("metamaskUninstalled");
-  walletBtn.removeEventListener("click", openModal);
-  console.log("to read web3 content, please install metamask");
-  walletBtn.textContent = `Please install Metamask`
-}
-
-
 
 // metamask wallet connect button function
 ethereumButton.addEventListener("click", () => {
@@ -137,7 +129,7 @@ async function getAccount() {
   accounts = await ethereum.request({ method: "eth_requestAccounts" });
   account = accounts[0];
   isAccountConnected = true;
-  localStorage.setItem("account", account); //localStorage is impressive & useful when the user refresh webpage.
+  localStorage.setItem("account", account); //localStorage is basic & useful when the user refreshes webpage.
   localStorage.setItem("status", isAccountConnected);
   localStorage.setItem("network", ethereum.networkVersion);
   
@@ -147,13 +139,14 @@ async function getAccount() {
     document.getElementById("connectionLED").style.backgroundColor = "green";
     document.querySelector(".show-modal").innerText ="Connected" ;
     document.querySelector(".name").innerText ="YUSUF EREN YILDIZ \n Legal Engineer";
-    if (ethereum.networkVersion === "4"){
-    document.querySelector(".networkBtn").innerText = "Connected: Rinkeby Testnet";
+    console.log(ethereum.networkVersion)
+    if (ethereum.networkVersion === "5"){
+    document.querySelector(".networkBtn").innerText = "Connected: Goerli Testnet \n If you are using Goerli Testnet, you can send me GoEth for dev purposes :) \n My Ethereum adress: 0x27305152387E2A7d31ce011363F4CB90c7554103";
         } 
     if (ethereum.networkVersion === "1"){
     document.querySelector(".networkBtn").innerText = "Connected: Ethereum Mainnet";
         } 
-    if (ethereum.networkVersion !== "1" && ethereum.networkVersion !=="4"){
+    if (ethereum.networkVersion !== "1" && ethereum.networkVersion !=="5"){
       document.querySelector(".networkBtn").innerText = "Connected Network: Undefined";
     }
     document.querySelector(".walletalert").style.display ="none";
@@ -161,20 +154,20 @@ async function getAccount() {
   }
 }
 
-if (localStorage.length >0) { //when the user refresh webpage, still connected and should be displayed.
+if (localStorage.length >0) { //when the user refreshes webpage, still connected and should be displayed.
   if (localStorage.getItem("status")) {
     statusBar.innerHTML = "Connected with" + "  :  " + localStorage.getItem("account");
     document.getElementById("status").innerText = " " + "Connected";
     document.getElementById("connectionLED").style.backgroundColor = "green";
     document.querySelector(".show-modal").innerText ="Connected" ;
     document.querySelector(".name").innerText ="YUSUF EREN YILDIZ \n Legal Engineer";
-    if (localStorage.getItem("network") === "4"){
-    document.querySelector(".networkBtn").innerText = "Connected: Rinkeby Testnet";
+    if (localStorage.getItem("network") === "5"){
+    document.querySelector(".networkBtn").innerText = "Connected: Goerli Testnet";
         } 
     if (localStorage.getItem("network") === "1"){
     document.querySelector(".networkBtn").innerText = "Connected: Ethereum Mainnet";
         } 
-    if (localStorage.getItem("network") !== "1" && localStorage.getItem("network") !=="4"){
+    if (localStorage.getItem("network") !== "1" && localStorage.getItem("network") !=="5"){
       document.querySelector(".networkBtn").innerText = "Connected Network: Undefined";
     }
     document.querySelector(".walletalert").style.display ="none";

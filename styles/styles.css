@@ -23,9 +23,11 @@ body {
 
 @media screen and (max-width: 601px) {
   .mainpage {
-    background: none;
+    background: url(/imgs/imagetrimmed.jpg);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size:cover;
   }
-  
 }
 
 .navbar {
@@ -41,7 +43,6 @@ body {
 .logoarea {
   margin: 1.4vw;
   display: flex;
-  font-size: 1rem;
   text-align: center;
   align-items: center;
   font-weight: bold;
@@ -53,14 +54,14 @@ body {
   font-size: 3rem;
 }
 .line1 {
-  width: 0.3vw;
-  height: 3.66vw;
+  width: 0.3rem;
+  height: 2.7rem;
   margin: 0.3vw;
   color: #b5753e;
   background-color: #b5753e;
 }
 .name {
-  width: 20rem;
+  width: 13rem;
   font-size: 1.2rem;
   text-align: left;
 }
@@ -74,6 +75,7 @@ body {
   width: 100%;
 }
 
+
 .home{
 color: white;
   text-decoration: none;
@@ -86,7 +88,7 @@ color: white;
 .collab,
 .blog,
 .contact {
-  display: inline-block;
+
   position: relative;
   cursor: pointer;
 }
@@ -115,6 +117,17 @@ color: white;
   transform: scaleX(1);
   transform-origin: bottom left;
   cursor: pointer;
+}
+
+@media screen and (max-width: 601px) {
+  .home,
+  .about-me,
+  .collab,
+  .blog,
+  .contact,
+  .show-modal {
+   display: none;
+  }
 }
 
 .show-modal {
@@ -157,7 +170,7 @@ color: white;
 
 @media screen and (max-width: 600px) {
   .mainframe{
-    margin-left: 1%;
+    margin-left: 0;
     width: 100%;
 
   }
@@ -165,7 +178,7 @@ color: white;
 }
 
 .content {
-  width: 75%;
+  width: 90%;
   height: 50%;
   color: white;
   font-size: 1rem;
@@ -194,11 +207,9 @@ color: white;
 .second-page {
   display: flex;
   width: 100%;
-  height: 100%;
+  height: auto;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: 100%;
   background: url(/imgs/aboutimage.png);
   background-repeat: no-repeat;
   background-attachment: fixed;
@@ -206,7 +217,7 @@ color: white;
   background-position-x: 10px;
 }
 
-h1 {
+h1, h2, h3, h4 {
   justify-content: center;
   align-items: center;
   color: white;
@@ -214,9 +225,11 @@ h1 {
 }
 .walletneededcard {
   display: none;
+
 }
 .walletalert {
   display:flex;
+  text-decoration: none;
   width: 100%;
   height: 100%;
   background-color:rgba(37, 53, 69, 0.5);
@@ -225,23 +238,37 @@ h1 {
   justify-content: center;
   text-align: center;
   color: #b5753e;
-
+  color: whitesmoke;
 
 }
+
 .box-container {
-  width: 99%;
-  height: 100%;
-  color:rgba(255, 255, 255, 0.75);
-  font-size: 1.2rem;
-  justify-content: center;
+  color: whitesmoke;
+}
+
+.box-container-blog {
   display: flex;
-  background-color: rgba(37, 53, 69, 0.5);
-  align-items: center;
+  flex-direction: row;
+  color: whitesmoke;
+}
+
+@media screen and (max-width: 1000px){
+  .box-container-blog {
+    flex-direction: column;
+  }
+  
 }
 
 .abouttext {
-  width: 95%;
-  align-items: center;
+  font-size: 1rem;
+  text-align: center;
+  color: rgba(255, 255, 255, 0.7);;
+}
+
+@media screen and (max-width: 601px) {
+  .abouttext {
+    font-size: 0.9rem;
+  }
 }
 
 .boxes {
@@ -264,12 +291,12 @@ h1 {
 }
 
 
+
 .inboxes {
   width: 18rem;
   height: 10rem;
   border-radius: 2rem;
   margin: 1rem;
-
   background-image: url(/imgs/medicalhealth.png);
   background-repeat: no-repeat;
   background-size: cover;
@@ -295,6 +322,11 @@ h1 {
   background-size:cover;
   background-position-y: -3rem ;
 }
+
+.web3content {
+  text-decoration: none;
+  color: whitesmoke;
+}
 h5 {
   margin-bottom: 0.5rem;
 }
@@ -305,22 +337,13 @@ h5 {
 .fifth-page {
   margin: 0;
   display: flex;
-  width: 100%;
-  height: 100%;
+  width: auto;
+  height: auto;
   flex-direction: column;
   align-items: center;
 }
-h2,
-h3,
-h4 {
-  justify-content: center;
-  align-items: center;
-  color: white;
-  font-size: 3rem;
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+
+
 
 .hidden {
   display: none;
@@ -371,28 +394,27 @@ footer {
   right: 10px;
   top: 10px;
   font-size: 2rem;
-  box-shadow: none;
-  border: solid #b5753e;
+  border-style: none;
   cursor: pointer;
 }
 
 .close-modal:hover {
-  background-color: #b5753e;
+  color: #b5753e;
 }
 
 #myBtn {
   display: none;
   position: fixed;
-  bottom: 20px;
-  right: 30px;
+  bottom: 2rem;
+  right: 2rem;
   z-index: 99;
-  border: solid #b5753e 2px;
   outline: none;
   background-color: rgba(37, 53, 69);
   color: white;
   cursor: pointer;
   padding: 10px;
   font-size: 25px;
+  border: solid  1px #b5753e;
 }
 
 #myBtn:hover {
@@ -412,10 +434,7 @@ footer {
   justify-content: center;
   display: flex;
   font-size: 2rem;
-  margin-top: 5rem;
-  border-color: #b5753e;
-  border-width: 2px;
-  border-style: solid;
+  margin-top: 1rem;
   cursor: pointer;
 }
 
@@ -431,9 +450,6 @@ footer {
   justify-content: center;
   display: flex;
   font-size: 2rem;
-  border-color: #b5753e;
-  border-width: 2px;
-  border-style: solid;
   cursor: pointer;
 }
 
@@ -470,23 +486,20 @@ footer {
   justify-content: center;
   color: rgba(255, 255, 255, 0.25);
   font-size: 2rem;
-  margin-top: 2rem;
+
 }
 
 
 .box-container--5 {
-  width: 100vh;
-  height: 90vh;
   padding: 3rem;
-
   display: flex;
-  align-items: baseline;
-  justify-content: space-between;
+
 }
 
 .icon{
-  width: 10vh;
+  width: 3rem;
   filter: grayscale(100%);
+  margin-right: 2vw;
 }
 
 .icon:hover {
@@ -499,8 +512,15 @@ footer {
   margin: 2rem;
   padding: 0px;
   box-sizing: border-box;
-  align-items: center;
 }
+
+@media screen and (max-width: 601px){
+  .bottom-container{
+    flex-direction: column;
+  }
+}
+
+
 .pp {
   margin-left: 1rem;
   padding: 0;
@@ -511,9 +531,6 @@ footer {
 
 .bottom-right {
   text-align: center;
-  
-  
-
 }
 
 .last-text {
@@ -521,39 +538,52 @@ footer {
   color: rgba(255, 255, 255, 0.25);
   margin-left: 2rem;
 }
+/* collabritons section */
 
+}
 .box-container--3 {
-  width: 150vh;
-  height: 100%;
-  
-  
-}
-
-.collab-1, .collab-2, .collab-3 {
-  color: rgba(255, 255, 255, 0.25);
-  height: 33%;
   display: flex;
-  justify-content: center;
   align-items: center;
-  margin: 0;
-  padding: 0;
+  justify-content: center;
+
 
 }
 
-.gulel-text {
-  font-size: 1rem;
+.collab-2{
+  color: rgba(255, 255, 255, 0.25);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (max-width: 601px) {
+  .collab-2 {
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.lexciologo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lexcio-text {
   margin-left: 1rem;
 }
 
-h2 {
-  margin: 0;
-  padding: 0;
+@media screen and (max-width: 601px) {
+  .lexcio-text {
+ text-align: center;
+  }
 }
+  
 
-.h2-less-collab {
-  margin-top: 15rem;
-  margin-bottom: 7rem;
-}
+
+/* collabritons section */
+
 
 .disclaimer{
   text-decoration: none;
