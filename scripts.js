@@ -23,7 +23,7 @@ const navParent = document.querySelector(".pages")
 const pagesParent = document.querySelector(".pagecontainer")
 
 //scroll style:
-const scrollStyle = { behavior: "smooth", block: "center"}
+const scrollStyle = { behavior: "smooth", block: "end"}
 
 //Get the button:
 const mybutton = document.getElementById("myBtn");
@@ -45,6 +45,7 @@ const closeModal = function () {
 /*modal wallet connection window */
 
 const walletBtn = document.querySelector(".show-modal");
+const hamburgerwallet = document.querySelector(".hamburgerwallet");
 const modal = document.querySelector(".modal");
 const overlay = document.querySelector(".overlay");
 const btnCloseModal = document.querySelector(".close-modal");
@@ -62,7 +63,7 @@ if (typeof window.ethereum !== "undefined") {
   walletBtn.textContent = `Please install Metamask`
 }
 
-
+//selections about connectwallet feature
 const ethereumButton = document.querySelector(".metamask-container");
 const statusBar = document.querySelector(".showAccount");
 const disconnectBtn = document.querySelector(".disconnectBtn");
@@ -110,6 +111,7 @@ window.onscroll = function () {
 };
 //open modal window
 walletBtn.addEventListener("click", openModal);
+hamburgerwallet.addEventListener("click", openModal); 
 btnCloseModal.addEventListener("click", closeModal);
 overlay.addEventListener("click", closeModal);
 
@@ -191,3 +193,14 @@ window.ethereum.on("accountsChanged", function (accounts) {
   document.querySelector(".walletneededcard").style.display ="none";
 }); 
 
+//hamburger menu 
+document.querySelector(".hamburgermenu").addEventListener("click", function(){
+  document.querySelector(".DENEME").classList.toggle("open");
+  topFunction();
+})
+//hamburger menu, scrollintoview
+document.querySelector(".DENEME").addEventListener("click", function(e){
+  e.preventDefault();
+  const selectString= e.target.getAttribute("id")
+  const targetPage = document.querySelector(`a[href='${selectString}']`);
+  targetPage.scrollIntoView(scrollStyle)})

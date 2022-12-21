@@ -28,6 +28,7 @@ body {
     background-attachment: fixed;
     background-size:cover;
   }
+  
 }
 
 .navbar {
@@ -40,6 +41,8 @@ body {
   top: 0;
   transition: top 0.3s;
 }
+
+
 .logoarea {
   margin: 1.4vw;
   display: flex;
@@ -119,7 +122,39 @@ color: white;
   cursor: pointer;
 }
 
-@media screen and (max-width: 601px) {
+
+.DENEME{
+
+  width: auto;
+  height: auto;
+  color: white;
+  background-color: rgba(37, 53, 69, 1);
+  z-index: 99;
+  margin-top: 4rem;
+  justify-content: center;
+  text-align: center;
+}
+
+
+
+.DenemeMenu {
+  list-style: none;
+  margin-top: 1rem;
+  justify-content: space-between;
+}
+
+.closed {
+  display: none;
+}
+
+.open {
+  display: block;
+}
+
+.hamburgermenu {
+  display: none;
+}
+@media screen and (max-width: 954px) {
   .home,
   .about-me,
   .collab,
@@ -127,6 +162,12 @@ color: white;
   .contact,
   .show-modal {
    display: none;
+  }
+  .hamburgermenu {
+    display: block;
+  }
+  .pages{
+    margin: 0;
   }
 }
 
@@ -176,7 +217,42 @@ color: white;
   }
   
 }
+/**/
+/* Menu Icon */
 
+
+.hamb{
+  cursor: pointer;
+  float: right;
+  padding: 40px 20px;
+}/* Style label tag */
+
+.hamb-line {
+  background: white;
+  display: block;
+  height: 2px;
+  position: relative;
+  width: 24px;
+
+} /* Style span tag */
+
+.hamb-line::before,
+.hamb-line::after{
+  background: white;
+  content: '';
+  display: block;
+  height: 100%;
+  position: absolute;
+  transition: all .2s ease-out;
+  width: 100%;
+}
+.hamb-line::before{
+  top: 5px;
+}
+.hamb-line::after{
+  top: -5px;
+}
+/**/
 .content {
   width: 90%;
   height: 50%;
@@ -442,6 +518,10 @@ footer {
   text-decoration: underline;
 }
 
+.metamasklogo {
+  width: 8rem;
+}
+
 .statusBar {
   width: 100%;
   height: 50px;
@@ -540,7 +620,7 @@ footer {
 }
 /* collabritons section */
 
-}
+
 .box-container--3 {
   display: flex;
   align-items: center;
